@@ -1,0 +1,52 @@
+\documentclass[11pt]{jarticle}
+\usepackage{ascmac}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{url}
+\usepackage{listings, jlisting}
+\usepackage{here,txfonts,txfonts}
+\usepackage{pxjahyper}
+\usepackage{color}
+
+%\usepackage[doctor]{fireport} %博士後期課程の場合
+\usepackage[master]{fireport} %博士前期課程の場合
+%\usepackage{fireport} %4年次生の場合
+%\usepackage[junior]{fireport} %3年次生の場合
+%\usepackage[manual]{fireport} %マニュアルの場合
+%\usepackage[presemi]{fireport} %プレゼミ資料の場合
+%\usepackage[report,nosupervisor]{fireport} %レポートの場合
+\lecture{hoge} %レポートの場合，hogeを講義名に変える
+
+\renewcommand{\lstlistingname}{ソースコード}
+\lstset{
+  breaklines = true,
+  language=Python,
+  basicstyle=\ttfamily\scriptsize,
+  commentstyle={\itshape \color[cmyk]{1,0.4,1,0}},
+  classoffset=1,
+  keywordstyle={\bfseries \color[cmyk]{0,1,0,0}},
+  stringstyle={\ttfamily \color[rgb]{0,0,1}},
+  frame=tRBl,
+  framesep=5pt,
+  showstringspaces=false,
+  numbers=left,
+  stepnumber=1,
+  numberstyle=\tiny,
+  tabsize=2,
+  }
+
+%
+\title{報告書}
+\id{情14-61}
+\author{上山 真也}
+\teacher{小林 孝史}
+%
+\begin{document}
+\maketitle
+
+{{.Text}}
+
+\begin{thebibliography}{9}
+        \bibitem{}
+\end{thebibliography}
+
+\end{document}

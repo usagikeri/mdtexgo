@@ -65,8 +65,8 @@ func cleanup(texfile string) string {
 		panic(err)
 	}
 	str := string(data)
-	temp := strings.Replace(str, "\\begin{varbatim}", "\\begin{lstlisting}", -1)
-	temp = strings.Replace(str, "\\end{varbatim}", "\\end{lstlisting}", -1)
+	temp := strings.Replace(str, "\\begin{verbatim}", "\\begin{lstlisting}", -1)
+	temp = strings.Replace(str, "\\end{verbatim}", "\\end{lstlisting}", -1)
 	return temp
 }
 

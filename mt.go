@@ -39,10 +39,12 @@ func init() {
 		panic(err)
 	}
 
+	// template
 	s := string(b)
 
 	tpl = template.Must(template.New("").Parse(s))
 
+	// arg parse
 	flag.Parse()
 	fileName = flag.Arg(0)
 
@@ -59,19 +61,15 @@ func runPandoc(mdfile string) string {
 	return string(out)
 }
 
-func cleanup(texfile string) string {
-	data, err := ioutil.ReadFile(texfile)
-	if err != nil {
-		panic(err)
-	}
-	str := string(data)
-	temp := strings.Replace(str, "\\begin{verbatim}", "\\begin{lstlisting}", -1)
-	temp = strings.Replace(str, "\\end{verbatim}", "\\end{lstlisting}", -1)
+func cleanup(tex string) string {
+	temp := strings.Replace(tex, "\\begin{verbatim}", "\\begin{lstlisting}", -1)
+	temp = strings.Replace(temp, "\\end{verbatim}", "\\end{lstlisting}", -1)
 	return temp
 }
 
 func main() {
 	texText := runPandoc(fileName)
+	texText = cleanup(texText)
 	outfileName := strings.Split(fileName, ".")[0] + ".tex"
 
 	tpl.Execute(fw, struct {

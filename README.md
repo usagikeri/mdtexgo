@@ -1,4 +1,8 @@
 
+MarkdownファイルをTeXファイルに変換し，テンプレートに挿入する．
+
+# Usage
+
 ## テンプレートの作成
 ```
 $mkdir template
@@ -22,7 +26,6 @@ $cat << EOF > template/template.tex
 
 {{.TEXT}}
 
-
 \end{document}
 EOF
 ```
@@ -30,12 +33,22 @@ EOF
 ## templateファイルのコンパイル
 
 ```
-$statik -src=template
-$go build mt.go
+$ make deps
+$ statik -src=template
 ```
 
-## goファイルのbuild
+## 実行
+
+### ローカルマシン
 
 ```
-$go build mt.go
+$ go build -o mt mt.go
+$ mt markdown-file
+```
+
+### Docker
+
+```
+$ docker build -t xxx/mt .
+$ docker run --rm -it -v $PWD:/work xxx/mt markdown-file
 ```
